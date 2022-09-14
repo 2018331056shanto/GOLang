@@ -4,33 +4,40 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strconv"
+	
 )
+var (
+	r = bufio.NewReader(os.Stdin)
+	w = bufio.NewWriter(os.Stdout)
+)
+func In(format string, a ...interface{}) {
+	fmt.Fscanf(r, format, a...)
+}
+func Out(format string, a ...interface{}) {
+	fmt.Fprintf(w, format, a...)
+}
+func solve(){
+	var n int
+	In("%d\n",&n)
+	var s string
+	In("%s\n",&s)
 
-func main() {
-	var t int
-	in := bufio.NewReader(os.Stdin)
-	fmt.Fscan(in, &t)
-	for x := 0; x < t; x++ {
-		var n int
-		fmt.Fscan(in,&n)
-		var s string
-		fmt.Fscan(in,&s)
-		start:=n-1
+	start:=n-1
 		var ans string 
 		const st int =96
 		for start>=0{
 			if s[start]!='0'{
 				// fmt.Println("hello")
-				c,_:=strconv.Atoi(string(s[start]))
-				val:=string(st+c)
+				s:=int(s[start])-48
+				val:=string(st+s);
 				ans+=val
 				start--
 			}else{
 
 
-				c,_:=strconv.Atoi(string(s[start-2])+string(s[start-1]))
-				val:=string(st+c)
+				z:=int(s[start-2])-48
+				y:=int(s[start-1])-48
+				val:=string(st+z*10+y)
 				ans +=val
 				start-=3
 			}
@@ -39,6 +46,17 @@ func main() {
 			fmt.Print(string(ans[i]))
 		}
 		fmt.Println()
-	}
+
+}
+
+func main() {
+	var t int
+	 In("%d\n",&t)
+	 for t>0{
+		solve()
+		t--
+	 }
+	
+	
 
 }
