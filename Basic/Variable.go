@@ -2,61 +2,116 @@ package main
 
 import (
 	"fmt"
-	"math"
-	"net/http"
 )
 
-//Package fmt implements formatted I/O with functions analogous to C's printf and scanf
 func main() { //main function starts from here
 
-	//  var statement decleares a lost of variables
-	//the name of the variable comes first and then the type name
-	// var name type
-	var int_val int;
-	int_val = 10;
-	fmt.Println(int_val);
-	// multiple variable declearation
+	/*
+		There are Lot of ways to declare a variable Below are some of them
+	*/
+
+	/*
+		In this type of variable declaration  the format is var name_of_variable type
+
+	*/
+	var name string
+
+	name = "Ashraful Islam Shanto"
+	/*
+		Here fmt(Format) is a package
+	*/
+	fmt.Println(name)
+
+	/*
+		And when we are not initializing any value in the variable then it will be initialized with the default value of that type
+
+	*/
+
 	var (
-		name string
-		age int
-		location string
-		salary float64
-		maritial_status bool
-		dimension complex128
-		sex string="Male"
+		defaultInt     int
+		defaultFloat   float64
+		defaultString  string
+		defaultBool    bool
+		defaultPointer *int
 	)
+
+	fmt.Println("Default values of Go variable types:")
+	fmt.Printf("int: %d\n", defaultInt)
+	fmt.Printf("float64: %f\n", defaultFloat)
+	fmt.Printf("string: '%s'\n", defaultString)
+	fmt.Printf("bool: %t\n", defaultBool)
+	fmt.Printf("pointer: %v\n", defaultPointer)
+
+	/*
+		We can declare multiple variable with multiple type  using var in this manner
+	*/
 	var (
-		
-		schoole,college,hometown,friendNo="Sherpur Govt Victoria Acedemy","Notre Dame College Mymensingh","Sherpur",50;
-		
-
+		age           int
+		education     string
+		instituteName string = "SUST"
+		graduated     bool   = true
 	)
 
-	name="Shanto"
-	age=24
-	location="Akhaliya Ghat"
-	salary=3333.22
-	maritial_status=false
-	dimension=1+5i
-	// %v	the value in a default format
-	// %T	a Go-syntax representation of the type of the value
+	age = 10
+	education = "BSc in Computer Science and Engineering"
+	fmt.Printf("%d \n %s\n %s\n %t \n", age, education, instituteName, graduated)
 
-	fmt.Printf("%s \n %d\n %s\n %s\n %f \n %t\n %v",name,age,sex,location,salary,maritial_status,dimension)
-	fmt.Println(schoole,college,hometown,friendNo)
-	// Inside a function, the := short assignment statement
-	//  can be used in place of a var declaration with implicit type
+	/*
+		When we wish to declare same type of variable in a single line we can do so using this
+	*/
 
-	goal:="To be happpy"
-	passion,dream:="Explore World","Live life with family"
+	var maritialStatus, district, upozila string
 
-	fmt.Printf("%s\n %s\n %s\n",goal,passion,dream)
-	// A variable can contain any type, including functions:
-	action:=func (x int, y int)  {
-		fmt.Println(x+y)
-		
-	}
-	action(15,20)
-	fmt.Println(math.Pi)
-	fmt.Printf("HTTP status OK uses code: %d", http.StatusOK)
+	maritialStatus = "married"
+	district = "Sherpur"
+	upozila = "Sherpur Sadar"
+	fmt.Printf("%s \n %s \n %s \n", maritialStatus, district, upozila)
 
+	/*
+
+		We can initialize the value in a variable in a single line using this manner
+	*/
+
+	var (
+		school, colleage, gradeInSSC, gradeInHSC = "Sherpur Govt Victoria Academy", "Notre Dame College", 5, 5.00
+	)
+
+	fmt.Printf("%s\n %s\n %d \n %f \n ", school, colleage, gradeInSSC, gradeInHSC)
+
+	/*
+		When we want to initalize some value in a variable in the time of declartion we can use this format
+		variable_name:=Value
+		By this manner we can easily declare and initialize the value in a single line. There is no need to decalre the value
+		Prior
+		Go is intelligent enough to identify the type of based on the value we have initialized in the variable
+	*/
+
+	nationality := "Bangladeshi"
+	hasPassport := false
+	hasNIDS := true
+
+	fmt.Printf("%s \n %t \n %t \n", nationality, hasPassport, hasNIDS)
+
+	/*
+		Suppose in the above example we have declared a variable called nationality and we want to change the value of that variable
+		We can do so using the same format as we have used to declare the variable
+	*/
+
+	nationality = "Bangladeshi-American"
+	hasPassport = true
+	hasNIDS = false
+	fmt.Printf("%s \n %t \n %t \n", nationality, hasPassport, hasNIDS)
+	/*
+		Once we declare a variable with certain type we can not change the type of that variable
+		For example if we declare a variable with int type then we can not assign a string
+		or a float value to that variable
+		We can only assign a value of that type or a type which can be converted to
+		that type without any loss of data
+	*/
+
+	/*
+		This line will cause a compile-time error because we are trying to assign an int to a string variable
+
+	*/
+	// nationality=10;
 }
