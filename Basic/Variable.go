@@ -6,26 +6,11 @@ import (
 
 func main() { //main function starts from here
 
-	/*
-		There are Lot of ways to declare a variable Below are some of them
-	*/
-
-	/*
-		In this type of variable declaration  the format is var name_of_variable type
-
-	*/
 	var name string
 
 	name = "Ashraful Islam Shanto"
-	/*
-		Here fmt(Format) is a package
-	*/
+
 	fmt.Println(name)
-
-	/*
-		And when we are not initializing any value in the variable then it will be initialized with the default value of that type
-
-	*/
 
 	var (
 		defaultInt     int
@@ -42,9 +27,6 @@ func main() { //main function starts from here
 	fmt.Printf("bool: %t\n", defaultBool)
 	fmt.Printf("pointer: %v\n", defaultPointer)
 
-	/*
-		We can declare multiple variable with multiple type  using var in this manner
-	*/
 	var (
 		age           int
 		education     string
